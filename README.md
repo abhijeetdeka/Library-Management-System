@@ -1,87 +1,64 @@
-# 📚 Library Management System (Python + MySQL)
+# 📚 Library Management System (CustomTkinter + MySQL)
 
-## 📖 Overview
-The **Library Management System** is a Python-based application designed to manage library operations efficiently.  
-It provides **secure login** for both **Admin** and **Student** users, book management, issuing/returning features, and borrowing history — all connected to a **MySQL database** for reliable data storage.
-
----
-
-## ✨ Features
-
-### 🔑 Login & Registration
-- **Role-based access**: Admin & Student
-- **Admin-controlled registration**: Only Admin can register new users (requires admin password)
-- **Secure credentials** stored in MySQL
-
-### 📚 Book Management (Admin Only)
-- Add new books
-- Delete books from the system
-- View all available books
-
-### 📖 Book Borrowing
-- Issue books to students
-- Return books and update stock automatically
-- Track due dates
-
-### 📝 Borrowing History
-- Maintain a record of all issued/returned books
-- View borrowing history by student
+A modern **Library Management System (LMS)** built with **Python**, **CustomTkinter GUI**, and **MySQL database**.  
+This desktop application allows administrators and students to manage books, issue and return them, and track borrowing history — all through a professional and interactive graphical interface.
 
 ---
 
-## 🛠️ Tech Stack
-- **Programming Language:** Python 3.x
-- **Database:** MySQL
-- **Libraries Used:**
-  - `mysql-connector-python` – Database connectivity
-  - `datetime` – Date handling
-  - `os` – File handling for extra logs
-  - `getpass` – Secure password entry
+## 🚀 Features
+
+### 👨‍💼 Admin Features
+- **Login as Admin** (default credentials below)
+- **Register new students**
+- **Add, view, search, and delete books**
+- **View registered students**
+- **View borrowing history (issue/return records)**
+- **Dark/Light Mode toggle**
+
+### 🎓 Student Features
+- **Login using student credentials**
+- **View available books**
+- **Search books by title or author**
+- **Issue and return books using title and author**
+- **View status of books in real time**
 
 ---
 
-## 📂 Project Structure
+## 🧩 Technologies Used
+
+| Component | Technology |
+|------------|-------------|
+| **Programming Language** | Python 3.x |
+| **GUI Framework** | CustomTkinter |
+| **Database** | MySQL |
+| **Hashing** | SHA-256 (for secure password storage) |
+| **Theme** | Light/Dark mode support |
+
+---
+
+## 🗄️ Database Details
+
+Database Name: **`library_gui_db`**
+
+### Tables Created:
+1. **`users`**
+   - Stores admin and student login info  
+   - Columns: `id`, `username`, `password_hash`, `role`, `name`
+
+2. **`books`**
+   - Stores book details  
+   - Columns: `id`, `title`, `author`, `status`, `issued_to`, `issued_on`
+
+3. **`borrow_history`**
+   - Tracks book issue and return activities  
+   - Columns: `id`, `book_title`, `book_author`, `student_name`, `issued_on`, `returned_on`
 
 ---
 
 ## ⚙️ Installation & Setup
 
-### 1️⃣ Clone the repository
+### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/YourUsername/Library_Management_System.git
-cd Library_Management_System
+git clone https://github.com/<your-username>/library-management-system.git
+cd library-management-system
 
-2️⃣ Install dependencies
-```bash
-git clone https://github.com/YourUsername/Library_Management_System.git
-cd Library_Management_System
-pip install mysql-connector-python
-
-3️⃣ Setup MySQL Database
-sql
-CREATE DATABASE library_db;
-USE library_db;
-
--- Create tables for users, books, and transactions
--- (Refer to database.sql file if available)
-
-4️⃣ Run the application
-bash
-python main.py
-
-👥 User Roles
-#Admin
-
-Register users
-
-Manage books (Add, Update, Delete)
-
-View borrowing history
-
-#Student
-
-Login & view available books
-
-Borrow and return books
-
-View own borrowing history
